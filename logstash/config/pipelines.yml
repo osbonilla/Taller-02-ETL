@@ -1,0 +1,31 @@
+# pipelines.yml
+# ---------------------------------------------------------------------------
+# Logstash soporta multiples pipelines independientes dentro del mismo
+# proceso. Se usa un archivo .conf por fuente (en vez de un unico pipeline
+# gigante con muchos "if" para enrutar por tipo de evento) porque:
+#
+#   1. Cada fuente tiene su propio input, sus propios filtros y su propio
+#      indice de salida -> mezclarlos en un solo archivo obligaria a usar
+#      condicionales para todo, dificultando la lectura y el mantenimiento.
+#   2. Un pipeline con errores (p.ej. un grok mal escrito) no tumba a los
+#      demas: quedan aislados unos de otros.
+#   3. Es mas facil de defender/explicar: "este .conf es LOG, este es JSON,
+#      este es el near-real-time" en vez de un solo archivo monolitico.
+#
+# El pipeline mysql_jdbc.conf.reference NO esta listado aqui a proposito:
+# se documenta como referencia (ver ese archivo) pero no se ejecuta por
+# defecto, porque requiere descargar manualmente el driver JDBC de MySQL
+# (ver README, seccion "Decisiones de diseno").
+# ---------------------------------------------------------------------------
+
+- pipeline.id: logs-pipeline
+  path.config: "/usr/share/logstash/pipeline/logs.conf"
+  pipeline.workers: 1
+
+- pipeline.id: events-json-pipeline
+  path.config: "/usr/share/logstash/pipeline/events_json.conf"
+  pipeline.workers: 1
+
+- pipeline.id: realtime-http-pipeline
+  path.config: "/usr/share/logstash/pipeline/realtime_http.conf"
+  pipeline.workers: 1

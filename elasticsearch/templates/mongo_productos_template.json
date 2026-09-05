@@ -1,0 +1,33 @@
+{
+  "index_patterns": ["taller-mongo-productos*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "producto_id": { "type": "keyword" },
+        "nombre": {
+          "type": "text",
+          "fields": { "keyword": { "type": "keyword", "ignore_above": 256 } }
+        },
+        "categoria": { "type": "keyword" },
+        "stock": { "type": "integer" },
+        "precio": { "type": "float" },
+        "atributos_color": { "type": "keyword" },
+        "atributos_peso_kg": { "type": "float" },
+        "atributos_marca": { "type": "keyword" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Inventario extraido de MongoDB; el objeto anidado 'atributos' se aplana en el transformer. Ver python/extractors/mongo_extractor.py y python/transformers/transformers.py",
+    "taller": "Taller-02-ETL"
+  }
+}

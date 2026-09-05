@@ -1,0 +1,22 @@
+# --- Extraccion / carga de datos -------------------------------------------
+pandas==2.2.3
+SQLAlchemy==2.0.36
+pymysql==1.1.1
+psycopg2-binary==2.9.10
+pymongo==4.10.1
+
+# --- Elasticsearch -------------------------------------------------------
+# Se fija en la misma linea mayor.menor que el servidor (ver ELK_VERSION en
+# .env) porque el cliente oficial de Elasticsearch garantiza compatibilidad
+# con la MISMA version major.minor del servidor.
+elasticsearch==9.4.1
+
+# --- Productor near real-time (HTTP hacia Logstash) --------------------------
+requests==2.32.3
+
+# --- Configuracion -------------------------------------------------------
+python-dotenv==1.0.1
+
+# --- Testing ------------------------------------------------------------
+pytest==8.3.3
+pytest-mock==3.14.0

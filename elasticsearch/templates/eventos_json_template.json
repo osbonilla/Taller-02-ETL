@@ -1,0 +1,28 @@
+{
+  "index_patterns": ["taller-eventos-json*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "event_id": { "type": "keyword" },
+        "event_type": { "type": "keyword" },
+        "user_id": { "type": "keyword" },
+        "pagina": { "type": "keyword" },
+        "monto": { "type": "float" },
+        "device": { "type": "keyword" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Eventos de interaccion de usuario (fuente JSON, batch via Logstash). Ver logstash/pipeline/events_json.conf",
+    "taller": "Taller-02-ETL"
+  }
+}

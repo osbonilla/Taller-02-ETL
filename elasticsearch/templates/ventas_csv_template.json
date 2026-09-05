@@ -1,0 +1,33 @@
+{
+  "index_patterns": ["taller-ventas-csv*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "venta_id": { "type": "keyword" },
+        "producto": {
+          "type": "text",
+          "fields": { "keyword": { "type": "keyword", "ignore_above": 256 } }
+        },
+        "categoria": { "type": "keyword" },
+        "cantidad": { "type": "integer" },
+        "precio_unitario": { "type": "float" },
+        "total": { "type": "float" },
+        "region": { "type": "keyword" },
+        "vendedor": { "type": "keyword" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Ventas historicas (fuente CSV, flujo batch). Ver python/extractors/csv_extractor.py",
+    "taller": "Taller-02-ETL"
+  }
+}

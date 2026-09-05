@@ -1,0 +1,27 @@
+# logstash.yml
+# ---------------------------------------------------------------------------
+# Configuracion global del nodo de Logstash (no de un pipeline en particular).
+#
+# Decisiones:
+#   - xpack.monitoring.enabled: false
+#       Para un taller de un solo nodo, el monitoreo de Elastic (que normalmente
+#       envia metricas a un cluster de monitoreo separado) no aporta valor y
+#       agrega configuracion y superficie de seguridad innecesarias. Se
+#       desactiva a proposito.
+#   - dead_letter_queue.enable: true
+#       Si un documento no puede indexarse en Elasticsearch (p.ej. un conflicto
+#       de mapping), en vez de perderse silenciosamente, Logstash lo guarda en
+#       la Dead Letter Queue (DLQ) local para poder inspeccionarlo despues.
+#       Es la respuesta concreta a "como sabemos que los datos llegaron
+#       correctamente / que pasa si algo falla" pedida en el taller.
+# ---------------------------------------------------------------------------
+
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline
+
+xpack.monitoring.enabled: false
+
+dead_letter_queue.enable: true
+path.dead_letter_queue: /usr/share/logstash/data/dead_letter_queue
+
+log.level: info

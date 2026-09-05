@@ -1,0 +1,31 @@
+{
+  "index_patterns": ["taller-mysql-usuarios*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "usuario_id": { "type": "keyword" },
+        "nombre": {
+          "type": "text",
+          "fields": { "keyword": { "type": "keyword", "ignore_above": 256 } }
+        },
+        "email": { "type": "keyword" },
+        "pais": { "type": "keyword" },
+        "fecha_registro": { "type": "date" },
+        "activo": { "type": "boolean" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Usuarios extraidos de MySQL (batch, Python + SQLAlchemy). Ver python/extractors/mysql_extractor.py",
+    "taller": "Taller-02-ETL"
+  }
+}

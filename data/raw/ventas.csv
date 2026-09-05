@@ -1,0 +1,301 @@
+venta_id,fecha,producto,categoria,cantidad,precio_unitario,total,region,vendedor
+V00001,2026-08-09,Zapatillas Running,Deporte,2,85.7,171.4,Guayaquil,M. Salazar
+V00002,2026-06-25,Teclado Mecanico,Tecnologia,12,62.62,751.44,Ambato,A. Torres
+V00003,2026-08-27,Aspiradora Robot,Hogar,7,248.07,1736.49,Guayaquil,M. Salazar
+V00004,2026-08-17,Cafetera Espresso,Hogar,10,138.25,1382.5,Ambato,P. Vega
+V00005,2026-06-19,Monitor 27 4K,Tecnologia,8,328.51,2628.08,Quito,M. Salazar
+V00006,2026-08-21,Bicicleta Urbana,Deporte,7,536.89,3758.23,Guayaquil,J. Ramirez
+V00007,2026-08-01,Mouse Inalambrico,Tecnologia,2,18.49,36.98,Cuenca,L. Ortiz
+V00008,2026-07-15,Silla Ergonomica,Oficina,1,219.42,219.42,Quito,P. Vega
+V00009,2026-07-06,Mouse Inalambrico,Tecnologia,9,18.28,164.52,Ambato,J. Ramirez
+V00010,2026-09-01,Aspiradora Robot,Hogar,4,270.81,1083.24,Guayaquil,J. Ramirez
+V00011,2026-07-30,Mouse Inalambrico,Tecnologia,4,19.66,78.64,Cuenca,P. Vega
+V00012,2026-08-02,Zapatillas Running,Deporte,6,87.31,523.86,Guayaquil,C. Nunez
+V00013,2026-07-04,Silla Ergonomica,Oficina,12,225.07,2700.84,Quito,L. Ortiz
+V00014,2026-08-12,Zapatillas Running,Deporte,3,91.65,274.95,Guayaquil,P. Vega
+V00015,2026-07-05,Cuaderno A5,Papeleria,5,3.45,17.25,Ambato,M. Salazar
+V00016,2026-06-22,Zapatillas Running,Deporte,6,95.26,571.56,Quito,M. Salazar
+V00017,2026-07-28,Audifonos Bluetooth,Tecnologia,1,79.1,79.1,Cuenca,A. Torres
+V00018,2026-08-06,Monitor 27 4K,Tecnologia,10,340.46,3404.6,Guayaquil,C. Nunez
+V00019,2026-07-05,Set de Boligrafos,Papeleria,7,6.12,42.84,Manta,M. Salazar
+V00020,2026-07-13,Silla Ergonomica,Oficina,3,206.23,618.69,Ambato,J. Ramirez
+V00021,2026-07-10,Bicicleta Urbana,Deporte,10,543.08,5430.8,Manta,J. Ramirez
+V00022,2026-08-27,Monitor 27 4K,Tecnologia,3,325.2,975.6,Quito,A. Torres
+V00023,2026-07-01,Teclado Mecanico,Tecnologia,11,63.1,694.1,Manta,L. Ortiz
+V00024,2026-07-22,Mouse Inalambrico,Tecnologia,7,18.49,129.43,Ambato,J. Ramirez
+V00025,2026-08-25,Cafetera Espresso,Hogar,1,150.57,150.57,Ambato,J. Ramirez
+V00026,2026-08-08,Mochila Antirrobo,Accesorios,11,47.03,517.33,Manta,M. Salazar
+V00027,2026-06-12,Set de Boligrafos,Papeleria,1,6.18,6.18,Cuenca,L. Ortiz
+V00028,2026-08-26,Mochila Antirrobo,Accesorios,3,48.06,144.18,Cuenca,C. Nunez
+V00029,2026-07-31,Cafetera Espresso,Hogar,10,141.5,1415.0,Guayaquil,L. Ortiz
+V00030,2026-07-09,Mochila Antirrobo,Accesorios,9,50.58,455.22,Cuenca,P. Vega
+V00031,2026-06-12,Laptop Pro 14,Tecnologia,2,1552.64,3105.28,Cuenca,M. Salazar
+V00032,2026-08-28,Laptop Pro 14,Tecnologia,4,1543.0,6172.0,Quito,C. Nunez
+V00033,2026-07-15,Set de Boligrafos,Papeleria,2,6.19,12.38,Guayaquil,M. Salazar
+V00034,2026-08-20,Zapatillas Running,Deporte,8,96.47,771.76,Cuenca,L. Ortiz
+V00035,2026-08-16,Audifonos Bluetooth,Tecnologia,10,75.38,753.8,Ambato,C. Nunez
+V00036,2026-07-28,Bicicleta Urbana,Deporte,4,563.05,2252.2,Cuenca,P. Vega
+V00037,2026-08-12,Lampara LED Escritorio,Oficina,9,23.1,207.9,Guayaquil,A. Torres
+V00038,2026-08-14,Escritorio Ajustable,Oficina,1,390.06,390.06,Ambato,M. Salazar
+V00039,2026-08-30,Laptop Pro 14,Tecnologia,2,1510.93,3021.86,Guayaquil,A. Torres
+V00040,2026-08-29,Lampara LED Escritorio,Oficina,1,24.31,24.31,Ambato,M. Salazar
+V00041,2026-07-15,Silla Ergonomica,Oficina,11,212.75,2340.25,Guayaquil,C. Nunez
+V00042,2026-08-13,Lampara LED Escritorio,Oficina,10,23.47,234.7,Manta,P. Vega
+V00043,2026-07-25,Monitor 27 4K,Tecnologia,2,308.03,616.06,Cuenca,P. Vega
+V00044,2026-08-31,Cuaderno A5,Papeleria,8,3.4,27.2,Quito,A. Torres
+V00045,2026-06-13,Cuaderno A5,Papeleria,12,3.18,38.16,Quito,M. Salazar
+V00046,2026-08-23,Monitor 27 4K,Tecnologia,4,326.31,1305.24,Manta,M. Salazar
+V00047,2026-06-07,Silla Ergonomica,Oficina,8,206.32,1650.56,Quito,P. Vega
+V00048,2026-07-04,Mochila Antirrobo,Accesorios,9,45.54,409.86,Ambato,A. Torres
+V00049,2026-07-20,Mouse Inalambrico,Tecnologia,4,17.97,71.88,Manta,M. Salazar
+V00050,2026-08-20,Audifonos Bluetooth,Tecnologia,7,80.05,560.35,Manta,A. Torres
+V00051,2026-06-21,Cuaderno A5,Papeleria,5,3.43,17.15,Manta,J. Ramirez
+V00052,2026-06-21,Cuaderno A5,Papeleria,12,3.44,41.28,Ambato,C. Nunez
+V00053,2026-08-07,Bicicleta Urbana,Deporte,8,523.87,4190.96,Guayaquil,A. Torres
+V00054,2026-06-25,Aspiradora Robot,Hogar,12,265.33,3183.96,Cuenca,A. Torres
+V00055,2026-06-08,Laptop Pro 14,Tecnologia,10,1467.37,14673.7,Ambato,M. Salazar
+V00056,2026-08-18,Laptop Pro 14,Tecnologia,9,1392.6,12533.4,Quito,L. Ortiz
+V00057,2026-07-28,Mouse Inalambrico,Tecnologia,11,19.65,216.15,Quito,L. Ortiz
+V00058,2026-07-07,Monitor 27 4K,Tecnologia,10,328.73,3287.3,Quito,P. Vega
+V00059,2026-08-05,Zapatillas Running,Deporte,10,92.01,920.1,Cuenca,M. Salazar
+V00060,2026-08-10,Zapatillas Running,Deporte,12,89.08,1068.96,Manta,M. Salazar
+V00061,2026-08-05,Zapatillas Running,Deporte,11,88.91,978.01,Quito,A. Torres
+V00062,2026-08-26,Set de Boligrafos,Papeleria,10,6.21,62.1,Quito,L. Ortiz
+V00063,2026-08-02,Monitor 27 4K,Tecnologia,9,315.03,2835.27,Quito,M. Salazar
+V00064,2026-06-16,Escritorio Ajustable,Oficina,5,368.79,1843.95,Ambato,C. Nunez
+V00065,2026-06-19,Silla Ergonomica,Oficina,10,226.36,2263.6,Ambato,A. Torres
+V00066,2026-07-03,Zapatillas Running,Deporte,9,88.9,800.1,Quito,M. Salazar
+V00067,2026-06-25,Silla Ergonomica,Oficina,2,223.79,447.58,Ambato,M. Salazar
+V00068,2026-06-27,Silla Ergonomica,Oficina,5,216.01,1080.05,Cuenca,M. Salazar
+V00069,2026-07-18,Zapatillas Running,Deporte,11,95.37,1049.07,Manta,J. Ramirez
+V00070,2026-07-26,Lampara LED Escritorio,Oficina,1,22.03,22.03,Cuenca,A. Torres
+V00071,2026-07-05,Laptop Pro 14,Tecnologia,6,1522.86,9137.16,Cuenca,M. Salazar
+V00072,2026-07-26,Bicicleta Urbana,Deporte,8,551.73,4413.84,Ambato,A. Torres
+V00073,2026-06-30,Mouse Inalambrico,Tecnologia,2,19.85,39.7,Guayaquil,L. Ortiz
+V00074,2026-08-22,Laptop Pro 14,Tecnologia,6,1487.3,8923.8,Manta,M. Salazar
+V00075,2026-06-20,Laptop Pro 14,Tecnologia,5,1446.24,7231.2,Quito,J. Ramirez
+V00076,2026-08-26,Monitor 27 4K,Tecnologia,11,314.38,3458.18,Cuenca,L. Ortiz
+V00077,2026-06-24,Lampara LED Escritorio,Oficina,7,24.65,172.55,Guayaquil,M. Salazar
+V00078,2026-06-18,Audifonos Bluetooth,Tecnologia,3,80.77,242.31,Guayaquil,P. Vega
+V00079,2026-08-04,Laptop Pro 14,Tecnologia,3,1516.34,4549.02,Manta,C. Nunez
+V00080,2026-08-10,Audifonos Bluetooth,Tecnologia,12,79.15,949.8,Guayaquil,C. Nunez
+V00081,2026-06-14,Mouse Inalambrico,Tecnologia,7,19.67,137.69,Manta,M. Salazar
+V00082,2026-06-17,Monitor 27 4K,Tecnologia,8,318.55,2548.4,Guayaquil,M. Salazar
+V00083,2026-08-04,Laptop Pro 14,Tecnologia,11,1413.9,15552.9,Cuenca,A. Torres
+V00084,2026-07-18,Mochila Antirrobo,Accesorios,5,47.09,235.45,Manta,C. Nunez
+V00085,2026-09-02,Audifonos Bluetooth,Tecnologia,9,74.48,670.32,Quito,J. Ramirez
+V00086,2026-08-10,Teclado Mecanico,Tecnologia,10,69.88,698.8,Quito,A. Torres
+V00087,2026-06-21,Aspiradora Robot,Hogar,7,258.68,1810.76,Cuenca,P. Vega
+V00088,2026-06-10,Aspiradora Robot,Hogar,9,250.91,2258.19,Ambato,M. Salazar
+V00089,2026-09-05,Silla Ergonomica,Oficina,1,218.85,218.85,Ambato,L. Ortiz
+V00090,2026-06-26,Zapatillas Running,Deporte,12,96.39,1156.68,Guayaquil,J. Ramirez
+V00091,2026-06-08,Cuaderno A5,Papeleria,2,3.43,6.86,Cuenca,L. Ortiz
+V00092,2026-06-27,Escritorio Ajustable,Oficina,11,402.89,4431.79,Cuenca,L. Ortiz
+V00093,2026-07-28,Silla Ergonomica,Oficina,11,210.65,2317.15,Cuenca,L. Ortiz
+V00094,2026-07-30,Teclado Mecanico,Tecnologia,4,65.3,261.2,Guayaquil,L. Ortiz
+V00095,2026-06-16,Aspiradora Robot,Hogar,5,260.73,1303.65,Quito,J. Ramirez
+V00096,2026-07-11,Silla Ergonomica,Oficina,4,211.24,844.96,Ambato,C. Nunez
+V00097,2026-07-02,Escritorio Ajustable,Oficina,8,382.82,3062.56,Guayaquil,L. Ortiz
+V00098,2026-08-28,Set de Boligrafos,Papeleria,12,5.59,67.08,Cuenca,L. Ortiz
+V00099,2026-08-27,Zapatillas Running,Deporte,11,92.64,1019.04,Guayaquil,C. Nunez
+V00100,2026-08-22,Silla Ergonomica,Oficina,4,221.52,886.08,Quito,A. Torres
+V00101,2026-06-23,Monitor 27 4K,Tecnologia,8,329.43,2635.44,Quito,P. Vega
+V00102,2026-06-27,Cuaderno A5,Papeleria,11,3.28,36.08,Manta,P. Vega
+V00103,2026-06-30,Cuaderno A5,Papeleria,4,3.1,12.4,Quito,A. Torres
+V00104,2026-06-19,Mochila Antirrobo,Accesorios,7,46.28,323.96,Ambato,P. Vega
+V00105,2026-06-15,Laptop Pro 14,Tecnologia,9,1424.47,12820.23,Quito,P. Vega
+V00106,2026-07-13,Teclado Mecanico,Tecnologia,8,67.39,539.12,Ambato,J. Ramirez
+V00107,2026-06-27,Mochila Antirrobo,Accesorios,8,48.7,389.6,Ambato,P. Vega
+V00108,2026-08-21,Audifonos Bluetooth,Tecnologia,9,75.6,680.4,Manta,P. Vega
+V00109,2026-08-09,Silla Ergonomica,Oficina,4,222.43,889.72,Ambato,P. Vega
+V00110,2026-08-29,Zapatillas Running,Deporte,4,88.61,354.44,Cuenca,M. Salazar
+V00111,2026-07-15,Silla Ergonomica,Oficina,6,208.23,1249.38,Quito,M. Salazar
+V00112,2026-08-21,Teclado Mecanico,Tecnologia,4,64.99,259.96,Guayaquil,A. Torres
+V00113,2026-07-22,Cuaderno A5,Papeleria,7,3.18,22.26,Manta,A. Torres
+V00114,2026-06-22,Monitor 27 4K,Tecnologia,7,320.2,2241.4,Ambato,C. Nunez
+V00115,2026-09-05,Laptop Pro 14,Tecnologia,10,1449.2,14492.0,Cuenca,J. Ramirez
+V00116,2026-06-16,Mochila Antirrobo,Accesorios,7,50.18,351.26,Manta,L. Ortiz
+V00117,2026-07-09,Bicicleta Urbana,Deporte,12,551.34,6616.08,Guayaquil,P. Vega
+V00118,2026-09-02,Monitor 27 4K,Tecnologia,5,322.13,1610.65,Manta,J. Ramirez
+V00119,2026-06-27,Zapatillas Running,Deporte,11,94.73,1042.03,Guayaquil,P. Vega
+V00120,2026-07-15,Lampara LED Escritorio,Oficina,3,24.67,74.01,Quito,P. Vega
+V00121,2026-08-28,Aspiradora Robot,Hogar,10,269.41,2694.1,Manta,M. Salazar
+V00122,2026-08-11,Audifonos Bluetooth,Tecnologia,8,73.02,584.16,Manta,J. Ramirez
+V00123,2026-06-23,Monitor 27 4K,Tecnologia,8,317.6,2540.8,Manta,J. Ramirez
+V00124,2026-08-28,Mochila Antirrobo,Accesorios,7,46.49,325.43,Manta,A. Torres
+V00125,2026-08-02,Bicicleta Urbana,Deporte,9,516.66,4649.94,Guayaquil,C. Nunez
+V00126,2026-09-02,Mouse Inalambrico,Tecnologia,11,17.67,194.37,Guayaquil,M. Salazar
+V00127,2026-08-13,Audifonos Bluetooth,Tecnologia,1,77.31,77.31,Guayaquil,P. Vega
+V00128,2026-08-15,Zapatillas Running,Deporte,2,92.0,184.0,Manta,C. Nunez
+V00129,2026-07-08,Silla Ergonomica,Oficina,6,204.08,1224.48,Quito,M. Salazar
+V00130,2026-08-06,Silla Ergonomica,Oficina,2,215.3,430.6,Ambato,C. Nunez
+V00131,2026-06-28,Lampara LED Escritorio,Oficina,7,22.94,160.58,Guayaquil,A. Torres
+V00132,2026-08-13,Aspiradora Robot,Hogar,12,275.07,3300.84,Quito,C. Nunez
+V00133,2026-07-09,Mochila Antirrobo,Accesorios,5,50.16,250.8,Quito,L. Ortiz
+V00134,2026-07-26,Mochila Antirrobo,Accesorios,1,47.07,47.07,Cuenca,A. Torres
+V00135,2026-06-15,Cafetera Espresso,Hogar,11,144.18,1585.98,Manta,P. Vega
+V00136,2026-07-05,Mouse Inalambrico,Tecnologia,7,19.89,139.23,Manta,C. Nunez
+V00137,2026-07-16,Teclado Mecanico,Tecnologia,7,63.24,442.68,Cuenca,L. Ortiz
+V00138,2026-07-22,Mochila Antirrobo,Accesorios,9,49.7,447.3,Manta,C. Nunez
+V00139,2026-08-12,Aspiradora Robot,Hogar,5,257.89,1289.45,Quito,J. Ramirez
+V00140,2026-07-22,Lampara LED Escritorio,Oficina,8,22.48,179.84,Ambato,L. Ortiz
+V00141,2026-07-19,Zapatillas Running,Deporte,7,89.34,625.38,Cuenca,M. Salazar
+V00142,2026-08-11,Set de Boligrafos,Papeleria,4,5.73,22.92,Cuenca,J. Ramirez
+V00143,2026-08-09,Lampara LED Escritorio,Oficina,10,23.84,238.4,Ambato,A. Torres
+V00144,2026-06-27,Cafetera Espresso,Hogar,4,139.36,557.44,Manta,P. Vega
+V00145,2026-07-04,Cafetera Espresso,Hogar,4,150.77,603.08,Manta,P. Vega
+V00146,2026-08-15,Mochila Antirrobo,Accesorios,1,45.51,45.51,Manta,C. Nunez
+V00147,2026-07-31,Monitor 27 4K,Tecnologia,5,331.62,1658.1,Manta,L. Ortiz
+V00148,2026-06-25,Cafetera Espresso,Hogar,6,145.77,874.62,Ambato,J. Ramirez
+V00149,2026-08-06,Escritorio Ajustable,Oficina,12,383.42,4601.04,Cuenca,M. Salazar
+V00150,2026-08-25,Mouse Inalambrico,Tecnologia,12,18.04,216.48,Ambato,C. Nunez
+V00151,2026-07-20,Teclado Mecanico,Tecnologia,4,63.58,254.32,Cuenca,C. Nunez
+V00152,2026-08-26,Aspiradora Robot,Hogar,9,267.17,2404.53,Guayaquil,J. Ramirez
+V00153,2026-09-04,Monitor 27 4K,Tecnologia,6,311.46,1868.76,Ambato,M. Salazar
+V00154,2026-07-13,Silla Ergonomica,Oficina,1,226.1,226.1,Cuenca,C. Nunez
+V00155,2026-07-19,Teclado Mecanico,Tecnologia,11,69.09,759.99,Quito,A. Torres
+V00156,2026-07-24,Aspiradora Robot,Hogar,5,262.87,1314.35,Cuenca,M. Salazar
+V00157,2026-07-21,Laptop Pro 14,Tecnologia,5,1554.89,7774.45,Quito,A. Torres
+V00158,2026-07-06,Cuaderno A5,Papeleria,8,3.07,24.56,Quito,M. Salazar
+V00159,2026-08-28,Teclado Mecanico,Tecnologia,10,69.77,697.7,Guayaquil,A. Torres
+V00160,2026-06-20,Cafetera Espresso,Hogar,7,149.18,1044.26,Ambato,M. Salazar
+V00161,2026-06-09,Mochila Antirrobo,Accesorios,9,47.27,425.43,Manta,J. Ramirez
+V00162,2026-08-06,Audifonos Bluetooth,Tecnologia,10,80.9,809.0,Ambato,L. Ortiz
+V00163,2026-08-26,Laptop Pro 14,Tecnologia,10,1558.48,15584.8,Guayaquil,C. Nunez
+V00164,2026-08-21,Monitor 27 4K,Tecnologia,5,331.47,1657.35,Guayaquil,M. Salazar
+V00165,2026-07-27,Cafetera Espresso,Hogar,2,140.7,281.4,Manta,C. Nunez
+V00166,2026-08-14,Aspiradora Robot,Hogar,8,256.84,2054.72,Cuenca,C. Nunez
+V00167,2026-08-29,Silla Ergonomica,Oficina,12,222.97,2675.64,Guayaquil,J. Ramirez
+V00168,2026-06-19,Mochila Antirrobo,Accesorios,11,48.56,534.16,Guayaquil,P. Vega
+V00169,2026-08-22,Mouse Inalambrico,Tecnologia,9,18.12,163.08,Cuenca,M. Salazar
+V00170,2026-08-06,Mouse Inalambrico,Tecnologia,1,17.97,17.97,Ambato,C. Nunez
+V00171,2026-07-24,Audifonos Bluetooth,Tecnologia,10,80.23,802.3,Quito,P. Vega
+V00172,2026-08-10,Bicicleta Urbana,Deporte,5,562.12,2810.6,Ambato,L. Ortiz
+V00173,2026-09-01,Set de Boligrafos,Papeleria,8,5.52,44.16,Manta,C. Nunez
+V00174,2026-08-27,Escritorio Ajustable,Oficina,10,373.37,3733.7,Guayaquil,C. Nunez
+V00175,2026-09-03,Audifonos Bluetooth,Tecnologia,10,76.97,769.7,Cuenca,L. Ortiz
+V00176,2026-07-04,Laptop Pro 14,Tecnologia,3,1466.19,4398.57,Manta,J. Ramirez
+V00177,2026-06-18,Teclado Mecanico,Tecnologia,10,65.43,654.3,Manta,A. Torres
+V00178,2026-08-05,Set de Boligrafos,Papeleria,6,5.77,34.62,Quito,M. Salazar
+V00179,2026-08-08,Escritorio Ajustable,Oficina,7,395.27,2766.89,Manta,L. Ortiz
+V00180,2026-08-12,Laptop Pro 14,Tecnologia,8,1394.1,11152.8,Cuenca,A. Torres
+V00181,2026-06-17,Mochila Antirrobo,Accesorios,7,50.25,351.75,Quito,C. Nunez
+V00182,2026-08-31,Audifonos Bluetooth,Tecnologia,9,75.75,681.75,Guayaquil,L. Ortiz
+V00183,2026-07-06,Escritorio Ajustable,Oficina,10,398.37,3983.7,Manta,A. Torres
+V00184,2026-08-08,Monitor 27 4K,Tecnologia,5,326.85,1634.25,Manta,C. Nunez
+V00185,2026-07-06,Set de Boligrafos,Papeleria,2,5.48,10.96,Ambato,M. Salazar
+V00186,2026-09-04,Bicicleta Urbana,Deporte,3,534.81,1604.43,Ambato,P. Vega
+V00187,2026-06-08,Mouse Inalambrico,Tecnologia,4,19.96,79.84,Quito,P. Vega
+V00188,2026-07-19,Mouse Inalambrico,Tecnologia,11,19.58,215.38,Cuenca,L. Ortiz
+V00189,2026-07-20,Bicicleta Urbana,Deporte,5,542.17,2710.85,Manta,M. Salazar
+V00190,2026-08-18,Set de Boligrafos,Papeleria,9,5.57,50.13,Ambato,L. Ortiz
+V00191,2026-08-09,Bicicleta Urbana,Deporte,3,573.65,1720.95,Manta,J. Ramirez
+V00192,2026-09-05,Lampara LED Escritorio,Oficina,9,22.55,202.95,Cuenca,C. Nunez
+V00193,2026-07-03,Silla Ergonomica,Oficina,10,215.33,2153.3,Manta,M. Salazar
+V00194,2026-08-04,Set de Boligrafos,Papeleria,9,5.82,52.38,Ambato,L. Ortiz
+V00195,2026-06-13,Cuaderno A5,Papeleria,8,3.43,27.44,Guayaquil,C. Nunez
+V00196,2026-06-14,Monitor 27 4K,Tecnologia,10,319.93,3199.3,Manta,A. Torres
+V00197,2026-06-08,Escritorio Ajustable,Oficina,12,384.37,4612.44,Manta,P. Vega
+V00198,2026-07-19,Zapatillas Running,Deporte,11,96.87,1065.57,Quito,M. Salazar
+V00199,2026-08-26,Cafetera Espresso,Hogar,10,144.01,1440.1,Manta,A. Torres
+V00200,2026-08-22,Cafetera Espresso,Hogar,8,138.04,1104.32,Manta,C. Nunez
+V00201,2026-08-10,Teclado Mecanico,Tecnologia,2,65.72,131.44,Cuenca,L. Ortiz
+V00202,2026-06-14,Bicicleta Urbana,Deporte,7,558.62,3910.34,Cuenca,C. Nunez
+V00203,2026-08-05,Audifonos Bluetooth,Tecnologia,9,74.96,674.64,Manta,L. Ortiz
+V00204,2026-07-06,Laptop Pro 14,Tecnologia,10,1390.4,13904.0,Cuenca,M. Salazar
+V00205,2026-08-27,Bicicleta Urbana,Deporte,2,543.46,1086.92,Quito,P. Vega
+V00206,2026-09-02,Teclado Mecanico,Tecnologia,12,64.28,771.36,Quito,J. Ramirez
+V00207,2026-07-31,Mochila Antirrobo,Accesorios,1,46.74,46.74,Manta,M. Salazar
+V00208,2026-07-01,Monitor 27 4K,Tecnologia,9,321.14,2890.26,Guayaquil,M. Salazar
+V00209,2026-07-30,Teclado Mecanico,Tecnologia,2,66.9,133.8,Ambato,C. Nunez
+V00210,2026-08-22,Monitor 27 4K,Tecnologia,8,341.97,2735.76,Guayaquil,P. Vega
+V00211,2026-07-02,Zapatillas Running,Deporte,5,90.78,453.9,Quito,P. Vega
+V00212,2026-08-21,Lampara LED Escritorio,Oficina,5,23.77,118.85,Quito,P. Vega
+V00213,2026-07-26,Escritorio Ajustable,Oficina,10,375.78,3757.8,Cuenca,P. Vega
+V00214,2026-07-30,Audifonos Bluetooth,Tecnologia,5,73.19,365.95,Manta,A. Torres
+V00215,2026-07-11,Monitor 27 4K,Tecnologia,7,327.79,2294.53,Cuenca,C. Nunez
+V00216,2026-07-03,Silla Ergonomica,Oficina,1,226.2,226.2,Manta,J. Ramirez
+V00217,2026-06-22,Laptop Pro 14,Tecnologia,10,1540.57,15405.7,Quito,L. Ortiz
+V00218,2026-06-09,Bicicleta Urbana,Deporte,8,571.47,4571.76,Cuenca,M. Salazar
+V00219,2026-08-18,Aspiradora Robot,Hogar,6,254.4,1526.4,Ambato,J. Ramirez
+V00220,2026-07-01,Zapatillas Running,Deporte,12,94.37,1132.44,Guayaquil,C. Nunez
+V00221,2026-08-06,Mouse Inalambrico,Tecnologia,11,19.13,210.43,Manta,A. Torres
+V00222,2026-08-27,Aspiradora Robot,Hogar,6,271.75,1630.5,Cuenca,J. Ramirez
+V00223,2026-08-23,Bicicleta Urbana,Deporte,7,525.33,3677.31,Ambato,J. Ramirez
+V00224,2026-06-17,Cafetera Espresso,Hogar,9,154.97,1394.73,Guayaquil,J. Ramirez
+V00225,2026-08-07,Lampara LED Escritorio,Oficina,8,24.63,197.04,Cuenca,A. Torres
+V00226,2026-08-14,Set de Boligrafos,Papeleria,2,5.57,11.14,Manta,L. Ortiz
+V00227,2026-09-04,Escritorio Ajustable,Oficina,2,400.06,800.12,Cuenca,L. Ortiz
+V00228,2026-06-24,Mouse Inalambrico,Tecnologia,8,18.46,147.68,Cuenca,L. Ortiz
+V00229,2026-08-26,Cuaderno A5,Papeleria,11,3.43,37.73,Guayaquil,P. Vega
+V00230,2026-07-13,Laptop Pro 14,Tecnologia,10,1544.18,15441.8,Cuenca,L. Ortiz
+V00231,2026-06-17,Monitor 27 4K,Tecnologia,11,306.63,3372.93,Manta,C. Nunez
+V00232,2026-08-23,Silla Ergonomica,Oficina,11,210.65,2317.15,Quito,A. Torres
+V00233,2026-08-13,Silla Ergonomica,Oficina,8,202.67,1621.36,Ambato,M. Salazar
+V00234,2026-06-25,Cuaderno A5,Papeleria,8,3.19,25.52,Ambato,P. Vega
+V00235,2026-06-11,Aspiradora Robot,Hogar,12,271.56,3258.72,Manta,C. Nunez
+V00236,2026-08-09,Mouse Inalambrico,Tecnologia,8,19.06,152.48,Quito,C. Nunez
+V00237,2026-08-13,Escritorio Ajustable,Oficina,4,382.9,1531.6,Cuenca,A. Torres
+V00238,2026-07-05,Zapatillas Running,Deporte,6,91.77,550.62,Cuenca,A. Torres
+V00239,2026-08-24,Cuaderno A5,Papeleria,5,3.12,15.6,Manta,A. Torres
+V00240,2026-07-09,Zapatillas Running,Deporte,4,92.9,371.6,Quito,A. Torres
+V00241,2026-08-24,Mochila Antirrobo,Accesorios,6,46.43,278.58,Ambato,M. Salazar
+V00242,2026-08-15,Mouse Inalambrico,Tecnologia,9,18.07,162.63,Guayaquil,J. Ramirez
+V00243,2026-07-09,Mochila Antirrobo,Accesorios,3,49.78,149.34,Quito,J. Ramirez
+V00244,2026-07-15,Audifonos Bluetooth,Tecnologia,3,80.88,242.64,Cuenca,M. Salazar
+V00245,2026-08-23,Mouse Inalambrico,Tecnologia,11,19.66,216.26,Quito,J. Ramirez
+V00246,2026-09-04,Mochila Antirrobo,Accesorios,4,48.56,194.24,Guayaquil,J. Ramirez
+V00247,2026-07-16,Laptop Pro 14,Tecnologia,3,1517.31,4551.93,Quito,C. Nunez
+V00248,2026-08-01,Mouse Inalambrico,Tecnologia,8,18.65,149.2,Ambato,L. Ortiz
+V00249,2026-07-07,Mouse Inalambrico,Tecnologia,8,18.79,150.32,Quito,C. Nunez
+V00250,2026-07-23,Mochila Antirrobo,Accesorios,11,48.14,529.54,Quito,A. Torres
+V00251,2026-08-26,Set de Boligrafos,Papeleria,7,5.78,40.46,Manta,C. Nunez
+V00252,2026-08-28,Lampara LED Escritorio,Oficina,8,21.97,175.76,Cuenca,L. Ortiz
+V00253,2026-07-07,Teclado Mecanico,Tecnologia,2,62.82,125.64,Ambato,L. Ortiz
+V00254,2026-07-09,Bicicleta Urbana,Deporte,6,539.74,3238.44,Ambato,J. Ramirez
+V00255,2026-08-27,Set de Boligrafos,Papeleria,9,5.92,53.28,Quito,C. Nunez
+V00256,2026-08-15,Zapatillas Running,Deporte,9,93.83,844.47,Manta,P. Vega
+V00257,2026-06-17,Lampara LED Escritorio,Oficina,4,22.99,91.96,Manta,P. Vega
+V00258,2026-07-26,Cuaderno A5,Papeleria,12,3.08,36.96,Cuenca,C. Nunez
+V00259,2026-06-30,Silla Ergonomica,Oficina,6,225.53,1353.18,Manta,A. Torres
+V00260,2026-08-27,Mouse Inalambrico,Tecnologia,2,17.8,35.6,Cuenca,M. Salazar
+V00261,2026-07-13,Cafetera Espresso,Hogar,1,148.8,148.8,Ambato,J. Ramirez
+V00262,2026-06-12,Zapatillas Running,Deporte,2,90.21,180.42,Manta,C. Nunez
+V00263,2026-08-02,Laptop Pro 14,Tecnologia,5,1490.68,7453.4,Quito,L. Ortiz
+V00264,2026-07-20,Cafetera Espresso,Hogar,4,140.67,562.68,Guayaquil,A. Torres
+V00265,2026-06-23,Escritorio Ajustable,Oficina,9,379.16,3412.44,Cuenca,L. Ortiz
+V00266,2026-06-23,Monitor 27 4K,Tecnologia,7,339.16,2374.12,Ambato,L. Ortiz
+V00267,2026-07-08,Zapatillas Running,Deporte,11,91.91,1011.01,Cuenca,A. Torres
+V00268,2026-08-06,Teclado Mecanico,Tecnologia,5,67.69,338.45,Cuenca,J. Ramirez
+V00269,2026-07-12,Laptop Pro 14,Tecnologia,3,1541.47,4624.41,Manta,A. Torres
+V00270,2026-09-02,Teclado Mecanico,Tecnologia,12,67.1,805.2,Quito,C. Nunez
+V00271,2026-07-23,Cafetera Espresso,Hogar,4,144.84,579.36,Cuenca,M. Salazar
+V00272,2026-06-22,Escritorio Ajustable,Oficina,5,396.65,1983.25,Ambato,L. Ortiz
+V00273,2026-06-24,Mouse Inalambrico,Tecnologia,1,17.95,17.95,Ambato,A. Torres
+V00274,2026-07-03,Zapatillas Running,Deporte,2,88.59,177.18,Manta,P. Vega
+V00275,2026-08-15,Aspiradora Robot,Hogar,8,261.0,2088.0,Ambato,A. Torres
+V00276,2026-07-01,Escritorio Ajustable,Oficina,7,366.48,2565.36,Ambato,P. Vega
+V00277,2026-08-15,Cafetera Espresso,Hogar,11,143.56,1579.16,Manta,L. Ortiz
+V00278,2026-08-16,Laptop Pro 14,Tecnologia,1,1416.03,1416.03,Guayaquil,J. Ramirez
+V00279,2026-07-19,Silla Ergonomica,Oficina,6,202.78,1216.68,Manta,M. Salazar
+V00280,2026-08-14,Teclado Mecanico,Tecnologia,7,66.25,463.75,Ambato,L. Ortiz
+V00281,2026-08-29,Audifonos Bluetooth,Tecnologia,11,79.11,870.21,Manta,C. Nunez
+V00282,2026-06-08,Laptop Pro 14,Tecnologia,7,1381.03,9667.21,Quito,J. Ramirez
+V00283,2026-06-28,Aspiradora Robot,Hogar,7,266.38,1864.66,Manta,J. Ramirez
+V00284,2026-08-05,Mouse Inalambrico,Tecnologia,7,17.63,123.41,Guayaquil,L. Ortiz
+V00285,2026-08-28,Set de Boligrafos,Papeleria,12,6.15,73.8,Manta,A. Torres
+V00286,2026-07-16,Monitor 27 4K,Tecnologia,7,328.5,2299.5,Quito,P. Vega
+V00287,2026-08-15,Audifonos Bluetooth,Tecnologia,5,78.52,392.6,Cuenca,M. Salazar
+V00288,2026-07-16,Mouse Inalambrico,Tecnologia,9,19.1,171.9,Ambato,M. Salazar
+V00289,2026-06-18,Lampara LED Escritorio,Oficina,6,22.8,136.8,Guayaquil,M. Salazar
+V00290,2026-08-19,Mouse Inalambrico,Tecnologia,3,18.19,54.57,Ambato,M. Salazar
+V00291,2026-06-22,Mochila Antirrobo,Accesorios,11,45.4,499.4,Manta,P. Vega
+V00292,2026-07-24,Mochila Antirrobo,Accesorios,10,49.61,496.1,Ambato,C. Nunez
+V00293,2026-07-06,Zapatillas Running,Deporte,10,89.18,891.8,Cuenca,M. Salazar
+V00294,2026-07-06,Set de Boligrafos,Papeleria,2,5.81,11.62,Cuenca,J. Ramirez
+V00295,2026-08-29,Aspiradora Robot,Hogar,1,258.9,258.9,Cuenca,P. Vega
+V00296,2026-06-16,Set de Boligrafos,Papeleria,1,5.51,5.51,Cuenca,A. Torres
+V00297,2026-07-18,Zapatillas Running,Deporte,2,92.59,185.18,Manta,P. Vega
+V00298,2026-06-25,Aspiradora Robot,Hogar,9,279.25,2513.25,Quito,P. Vega
+V00299,2026-08-05,Lampara LED Escritorio,Oficina,10,23.7,237.0,Ambato,P. Vega
+V00300,2026-07-23,Cafetera Espresso,Hogar,3,155.8,467.4,Quito,J. Ramirez

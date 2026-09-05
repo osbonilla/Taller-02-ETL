@@ -1,0 +1,26 @@
+{
+  "index_patterns": ["taller-eventos-realtime*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "transaccion_id": { "type": "keyword" },
+        "tienda_id": { "type": "keyword" },
+        "metodo_pago": { "type": "keyword" },
+        "monto": { "type": "float" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Transacciones sinteticas near real-time (Python producer -> Logstash http input). Ver python/producers/event_producer.py",
+    "taller": "Taller-02-ETL"
+  }
+}

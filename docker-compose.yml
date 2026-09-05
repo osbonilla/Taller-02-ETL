@@ -1,0 +1,304 @@
+# docker-compose.yml
+# =============================================================================
+# Taller-02-ETL — Flujo ELK (batch + near real-time) con 7 fuentes de datos
+#
+#   Arrancar:                docker compose up -d
+#   Ver estado:               docker compose ps
+#   Ver logs de un servicio:  docker compose logs -f logstash
+#   Detener (conserva datos): docker compose down
+#   Detener y borrar datos:   docker compose down -v
+#
+# Requiere Docker Compose V2 (comando `docker compose`, incluido en Docker
+# Desktop >= 4.x y en Docker Engine reciente). No usa `version:` porque la
+# Compose Specification actual ya no la requiere (esta obsoleta).
+#
+# Orden de arranque garantizado por `depends_on` + healthchecks:
+#   elasticsearch (healthy) -> es-init (completado) -> {logstash, python-batch,
+#   python-producer, kibana-init} ; mysql/postgres/mongodb (healthy) -> python-batch
+#
+# Ver README.md, seccion "Decisiones de diseno", para la justificacion de
+# cada eleccion (por que estas versiones, por que sin seguridad X-Pack, por
+# que healthchecks con curl, etc.).
+# =============================================================================
+
+services:
+
+  # ---------------------------------------------------------------------
+  # ELASTICSEARCH — nucleo de almacenamiento e indexacion
+  # Single-node, sin seguridad X-Pack (proyecto academico local). Ver
+  # README para la justificacion de esta simplificacion deliberada.
+  # ---------------------------------------------------------------------
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}
+    container_name: taller-elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      - xpack.license.self_generated.type=basic
+      - "ES_JAVA_OPTS=-Xms${ES_HEAP_SIZE:-512m} -Xmx${ES_HEAP_SIZE:-512m}"
+    ports:
+      - "${ES_PORT:-9200}:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    networks:
+      - taller-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 30s
+
+  # ---------------------------------------------------------------------
+  # es-init — aplica los 7 index templates UNA sola vez, antes de que
+  # cualquier otro servicio escriba el primer documento (ver
+  # scripts/setup_es_templates.py y python/Dockerfile).
+  # ---------------------------------------------------------------------
+  es-init:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: taller-etl-python:local
+    container_name: taller-es-init
+    command: ["python", "scripts/setup_es_templates.py"]
+    environment:
+      - ES_HOST=http://elasticsearch:9200
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - taller-net
+    restart: "no"
+
+  # ---------------------------------------------------------------------
+  # KIBANA — visualizacion
+  # ---------------------------------------------------------------------
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELK_VERSION}
+    container_name: taller-kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - XPACK_SECURITY_ENABLED=false
+      - SERVER_NAME=taller-kibana
+    ports:
+      - "${KIBANA_PORT:-5601}:5601"
+    networks:
+      - taller-net
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -f http://localhost:5601/api/status || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 30s
+
+  # ---------------------------------------------------------------------
+  # kibana-init — crea los index patterns automaticamente (best-effort;
+  # ver scripts/setup_kibana_index_patterns.py). Si falla, se documenta
+  # como crearlos manualmente en el README.
+  # ---------------------------------------------------------------------
+  kibana-init:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: taller-etl-python:local
+    container_name: taller-kibana-init
+    command: ["python", "scripts/setup_kibana_index_patterns.py"]
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      kibana:
+        condition: service_healthy
+      es-init:
+        condition: service_completed_successfully
+    networks:
+      - taller-net
+    restart: "no"
+
+  # ---------------------------------------------------------------------
+  # LOGSTASH — transporte + parseo de LOG y JSON, e ingesta near
+  # real-time via input http. Ver logstash/config/pipelines.yml
+  # ---------------------------------------------------------------------
+  logstash:
+    image: docker.elastic.co/logstash/logstash:${ELK_VERSION}
+    container_name: taller-logstash
+    environment:
+      - ES_HOST=http://elasticsearch:9200
+      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - ./data/raw:/usr/share/logstash/data-sources:ro
+    ports:
+      - "${LOGSTASH_HTTP_PORT:-8080}:8080"
+      - "${LOGSTASH_MONITOR_PORT:-9600}:9600"
+    networks:
+      - taller-net
+    depends_on:
+      es-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -f http://localhost:9600 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 40s
+
+  # ---------------------------------------------------------------------
+  # MYSQL — fuente relacional #1 (tabla usuarios)
+  # ---------------------------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: taller-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_EXTERNAL_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init-scripts/mysql:/docker-entrypoint-initdb.d:ro
+    networks:
+      - taller-net
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  # ---------------------------------------------------------------------
+  # POSTGRESQL — fuente relacional #2 (tabla clientes)
+  # ---------------------------------------------------------------------
+  postgres:
+    image: postgres:16
+    container_name: taller-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_EXTERNAL_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts/postgres:/docker-entrypoint-initdb.d:ro
+    networks:
+      - taller-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 15s
+
+  # ---------------------------------------------------------------------
+  # MONGODB — fuente NoSQL documental (coleccion inventario)
+  # ---------------------------------------------------------------------
+  mongodb:
+    image: mongo:7.0
+    container_name: taller-mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+    ports:
+      - "${MONGO_EXTERNAL_PORT:-27017}:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./init-scripts/mongo:/docker-entrypoint-initdb.d:ro
+    networks:
+      - taller-net
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping')\" || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 15s
+
+  # ---------------------------------------------------------------------
+  # PYTHON-BATCH — orquestador ETL: CSV + MySQL + PostgreSQL + MongoDB
+  # -> Elasticsearch (ver python/pipelines/batch_pipeline.py)
+  # ---------------------------------------------------------------------
+  python-batch:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: taller-etl-python:local
+    container_name: taller-python-batch
+    command: ["python", "-m", "pipelines.batch_pipeline"]
+    environment:
+      - ES_HOST=http://elasticsearch:9200
+      - ES_INDEX_PREFIX=${ES_INDEX_PREFIX:-taller}
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - BATCH_INTERVAL_SECONDS=${BATCH_INTERVAL_SECONDS:-120}
+      - BATCH_RUN_ONCE=${BATCH_RUN_ONCE:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data/raw:/app/data/raw:ro
+    depends_on:
+      es-init:
+        condition: service_completed_successfully
+      mysql:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    networks:
+      - taller-net
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------
+  # PYTHON-PRODUCER — genera transacciones sinteticas near real-time y
+  # las envia a Logstash via HTTP (ver python/producers/event_producer.py)
+  # ---------------------------------------------------------------------
+  python-producer:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: taller-etl-python:local
+    container_name: taller-python-producer
+    command: ["python", "-m", "producers.event_producer"]
+    environment:
+      - LOGSTASH_HTTP_HOST=logstash
+      - LOGSTASH_HTTP_PORT=8080
+      - PRODUCER_INTERVAL_SECONDS=${PRODUCER_INTERVAL_SECONDS:-5}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      logstash:
+        condition: service_healthy
+    networks:
+      - taller-net
+    restart: unless-stopped
+
+networks:
+  taller-net:
+    driver: bridge
+
+volumes:
+  es_data:
+  mysql_data:
+  postgres_data:
+  mongo_data:

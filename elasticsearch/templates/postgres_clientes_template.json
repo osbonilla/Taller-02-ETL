@@ -1,0 +1,32 @@
+{
+  "index_patterns": ["taller-postgres-clientes*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "cliente_id": { "type": "keyword" },
+        "nombre_empresa": {
+          "type": "text",
+          "fields": { "keyword": { "type": "keyword", "ignore_above": 256 } }
+        },
+        "sector": { "type": "keyword" },
+        "ciudad": { "type": "keyword" },
+        "pais": { "type": "keyword" },
+        "fecha_alta": { "type": "date" },
+        "ingresos_anuales": { "type": "float" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Clientes extraidos de PostgreSQL (batch, Python + SQLAlchemy). Ver python/extractors/postgres_extractor.py",
+    "taller": "Taller-02-ETL"
+  }
+}

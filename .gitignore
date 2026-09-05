@@ -1,0 +1,38 @@
+# .gitignore
+
+# --- Secretos / entorno local ------------------------------------------
+# El .env real NO se sube al repo (aunque el zip/carpeta local si lo trae
+# fisicamente, para que el proyecto funcione nada mas clonarlo/copiarlo).
+# Ver README, seccion Seguridad, para la justificacion de esta decision.
+.env
+
+# --- Python ---------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# --- Datos generados por Docker / volumenes locales -------------------
+data/processed/*
+!data/processed/.gitkeep
+
+# --- Logs / dead letter queue de Logstash (si se montara localmente) ---
+logstash/data/
+
+# --- Airflow (metadatos locales si se usa el compose opcional) ---------
+airflow/logs/
+airflow/plugins/
+airflow/airflow.db
+
+# --- Sistema operativo / editores --------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Compresion de entrega (no versionar el propio zip dentro del repo) -
+*.zip

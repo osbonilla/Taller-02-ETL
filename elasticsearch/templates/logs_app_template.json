@@ -1,0 +1,27 @@
+{
+  "index_patterns": ["taller-logs-app*"],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "log_level": { "type": "keyword" },
+        "service": { "type": "keyword" },
+        "log_message": { "type": "text" },
+        "status": { "type": "integer" },
+        "tiempo_ms": { "type": "integer" },
+        "source": { "type": "keyword" },
+        "@timestamp": { "type": "date" },
+        "ingested_at": { "type": "date" }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Logs de aplicacion parseados con grok+kv en Logstash. Ver logstash/pipeline/logs.conf",
+    "taller": "Taller-02-ETL"
+  }
+}
