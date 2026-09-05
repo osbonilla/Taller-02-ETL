@@ -1,0 +1,63 @@
+# mysql_jdbc.conf.reference
+# ---------------------------------------------------------------------------
+# REFERENCIA / NO SE EJECUTA POR DEFECTO (no esta listado en pipelines.yml).
+#
+# Se incluye para demostrar como se veria la ingesta de MySQL usando el
+# input nativo `jdbc` de Logstash — la alternativa "natural" segun el
+# diagrama del taller (MySQL -> Ship -> Logstash) — y para poder explicar en
+# la defensa por que este proyecto usa Python + SQLAlchemy en su lugar
+# (ver python/extractors/mysql_extractor.py y el README, seccion
+# "Decisiones de diseno").
+#
+# LIMITACION TECNICA REAL (no es solo preferencia de estilo):
+#   El input jdbc requiere el archivo .jar del driver "MySQL Connector/J"
+#   copiado dentro del contenedor de Logstash (`jdbc_driver_library`).
+#   Automatizar esa descarga en el build de la imagen depende de una URL
+#   externa (Maven Central / dev.mysql.com) que puede cambiar de version o
+#   no estar accesible segun la red de quien ejecute el proyecto. Para un
+#   taller que debe "funcionar siempre" en cualquier maquina, ese es un
+#   punto de fallo externo que se prefiere evitar en el flujo por defecto.
+#
+# Para habilitarlo manualmente:
+#   1. Descargar "mysql-connector-j-<version>.jar" desde
+#      https://dev.mysql.com/downloads/connector/j/ (o Maven Central).
+#   2. Copiarlo a logstash/drivers/mysql-connector-j.jar
+#   3. Montar ese archivo como volumen en el servicio logstash de
+#      docker-compose.yml (agregar la ruta a `volumes:`).
+#   4. Renombrar este archivo a "mysql_jdbc.conf" y agregarlo a
+#      logstash/config/pipelines.yml.
+#
+# Nota adicional: el input jdbc hace POLLING periodico (segun `schedule`),
+# NO Change Data Capture (CDC) real. Para CDC real haria falta Debezium +
+# un broker de mensajeria, fuera del alcance de este taller (se menciona
+# como mejora futura en el README).
+# ---------------------------------------------------------------------------
+
+input {
+  jdbc {
+    jdbc_driver_library    => "/usr/share/logstash/drivers/mysql-connector-j.jar"
+    jdbc_driver_class      => "com.mysql.cj.jdbc.Driver"
+    jdbc_connection_string => "jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useSSL=false&serverTimezone=UTC"
+    jdbc_user               => "${MYSQL_USER}"
+    jdbc_password           => "${MYSQL_PASSWORD}"
+    statement                => "SELECT * FROM usuarios WHERE usuario_id > :sql_last_value ORDER BY usuario_id"
+    use_column_value         => true
+    tracking_column           => "usuario_id"
+    tracking_column_type      => "numeric"
+    schedule                  => "*/1 * * * *"
+  }
+}
+
+filter {
+  mutate {
+    add_field => { "source" => "mysql-jdbc-reference" }
+  }
+}
+
+output {
+  elasticsearch {
+    hosts       => ["${ES_HOST}"]
+    index       => "taller-mysql-usuarios-jdbc-demo"
+    document_id => "%{usuario_id}"
+  }
+}

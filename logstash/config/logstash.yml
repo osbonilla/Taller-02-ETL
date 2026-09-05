@@ -3,6 +3,26 @@
 # Configuracion global del nodo de Logstash (no de un pipeline en particular).
 #
 # Decisiones:
+#   - api.http.host: "0.0.0.0"
+#       Host de bind de la API de monitoreo de Logstash (puerto 9600, usada
+#       por nuestro healthcheck y por scripts/healthcheck_all.sh). NOTA: esta
+#       opcion se llamaba "http.host" hasta Logstash 7.15; fue renombrada a
+#       "api.http.host" en 7.16 y el nombre viejo fue completamente
+#       eliminado (ya no solo deprecado) a partir de Logstash 9.x — usar
+#       "http.host" aqui hace que el contenedor falle al arrancar con
+#       "Setting 'http.host' doesn't exist".
+#   - NO se define "path.config" aqui a proposito.
+#       "path.config" es el mecanismo de PIPELINE UNICO (equivalente a pasar
+#       `-f <ruta>` por linea de comandos): si se define, Logstash IGNORA
+#       pipelines.yml por completo (se ve como el warning "Ignoring the
+#       'pipelines.yml' file because command line options are specified") y,
+#       si la ruta es un directorio, carga TODOS los archivos que encuentre
+#       ahi -sin filtrar por extension- como un unico pipeline "main". Eso
+#       activaria por accidente hasta el archivo de referencia
+#       (mysql_jdbc.conf.reference), que depende de variables que no existen
+#       en este contenedor. Este proyecto usa MULTIPLES pipelines nombrados
+#       (ver logstash/config/pipelines.yml), asi que este setting se omite
+#       deliberadamente para que pipelines.yml sea la unica fuente de verdad.
 #   - xpack.monitoring.enabled: false
 #       Para un taller de un solo nodo, el monitoreo de Elastic (que normalmente
 #       envia metricas a un cluster de monitoreo separado) no aporta valor y
@@ -16,8 +36,7 @@
 #       correctamente / que pasa si algo falla" pedida en el taller.
 # ---------------------------------------------------------------------------
 
-http.host: "0.0.0.0"
-path.config: /usr/share/logstash/pipeline
+api.http.host: "0.0.0.0"
 
 xpack.monitoring.enabled: false
 

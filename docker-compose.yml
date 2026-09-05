@@ -61,6 +61,7 @@ services:
       context: .
       dockerfile: python/Dockerfile
     image: taller-etl-python:local
+    pull_policy: build
     container_name: taller-es-init
     command: ["python", "scripts/setup_es_templates.py"]
     environment:
@@ -107,6 +108,7 @@ services:
       context: .
       dockerfile: python/Dockerfile
     image: taller-etl-python:local
+    pull_policy: build
     container_name: taller-kibana-init
     command: ["python", "scripts/setup_kibana_index_patterns.py"]
     environment:
@@ -232,6 +234,7 @@ services:
       context: .
       dockerfile: python/Dockerfile
     image: taller-etl-python:local
+    pull_policy: build
     container_name: taller-python-batch
     command: ["python", "-m", "pipelines.batch_pipeline"]
     environment:
@@ -279,6 +282,7 @@ services:
       context: .
       dockerfile: python/Dockerfile
     image: taller-etl-python:local
+    pull_policy: build
     container_name: taller-python-producer
     command: ["python", "-m", "producers.event_producer"]
     environment:

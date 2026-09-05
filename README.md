@@ -73,7 +73,7 @@ flowchart TD
 - **CSV, MySQL, PostgreSQL, MongoDB** → Python (pandas / SQLAlchemy / pymongo) hace la extracción, validación y transformación, y carga directo a Elasticsearch vía bulk API. Es un flujo **ETL** clásico.
 - **LOG, JSON, Producer (near real-time)** → Logstash hace transporte + parseo en el mismo paso (grok, kv, json, http), que es exactamente el caso de uso para el que Logstash fue diseñado.
 
-Esto no es una desviación del enunciado sino una decisión técnica justificada: Logstash no tiene un input oficial mantenido por Elastic para MongoDB, y el input `jdbc` para MySQL/PostgreSQL depende de descargar manualmente un driver `.jar` externo — un punto de fallo evitable para un proyecto que debe funcionar de forma consistente en cualquier máquina. El pipeline `logstash/pipeline/mysql_jdbc.conf.reference` documenta esa alternativa nativa igualmente, sin activarla por defecto.
+Esto no es una desviación del enunciado sino una decisión técnica justificada: Logstash no tiene un input oficial mantenido por Elastic para MongoDB, y el input `jdbc` para MySQL/PostgreSQL depende de descargar manualmente un driver `.jar` externo — un punto de fallo evitable para un proyecto que debe funcionar de forma consistente en cualquier máquina. El pipeline `logstash/reference/mysql_jdbc.conf.reference` (fuera de `logstash/pipeline/` a propósito, ver sección 15) documenta esa alternativa nativa igualmente, sin activarla por defecto.
 
 ---
 
@@ -194,7 +194,9 @@ Taller-02-ETL/
 ├── logstash/
 │   ├── config/                       # logstash.yml, pipelines.yml
 │   └── pipeline/                     # logs.conf, events_json.conf, realtime_http.conf
-│                                      # + mysql_jdbc.conf.reference (documentado, inactivo)
+│
+├── logstash/reference/
+│   └── mysql_jdbc.conf.reference     # documentado, fuera de pipeline/ a propósito (ver sección 15)
 │
 ├── elasticsearch/
 │   └── templates/                    # 7 index templates (mappings explícitos)
@@ -369,7 +371,7 @@ Para LOG y JSON, Logstash resuelve con componentes probados (grok, kv, codecs) e
 Integración nativa con Elasticsearch (mismo query DSL, mismo release conjunto). Grafana necesitaría un datasource plugin adicional sin aportar ventaja para este caso de uso.
 
 **¿Por qué Python (pandas/SQLAlchemy/pymongo) para CSV, MySQL, PostgreSQL y MongoDB, si el diagrama del taller muestra esas fuentes "embarcando" directo a Logstash?**
-- *MySQL/PostgreSQL:* el input `jdbc` de Logstash requiere descargar manualmente el driver `.jar` correspondiente dentro del contenedor — una dependencia de una URL externa que puede cambiar o no estar disponible según la red de quien ejecute el proyecto. Python + SQLAlchemy es más robusto, testeable con mocks (ver `tests/test_extractors_mocked.py`) y no tiene ese punto de fallo. La alternativa jdbc se documenta igual en `logstash/pipeline/mysql_jdbc.conf.reference`, sin activarla por defecto.
+- *MySQL/PostgreSQL:* el input `jdbc` de Logstash requiere descargar manualmente el driver `.jar` correspondiente dentro del contenedor — una dependencia de una URL externa que puede cambiar o no estar disponible según la red de quien ejecute el proyecto. Python + SQLAlchemy es más robusto, testeable con mocks (ver `tests/test_extractors_mocked.py`) y no tiene ese punto de fallo. La alternativa jdbc se documenta igual en `logstash/reference/mysql_jdbc.conf.reference`, sin activarla por defecto.
 - *MongoDB:* Elastic no mantiene oficialmente un input para MongoDB (el que existe es un plugin comunitario sin mantenimiento activo confiable). pymongo es el driver oficial y la opción más sólida.
 - *CSV:* pandas es la herramienta estándar de facto para ingestión tabular en Python, y da control total sobre la validación antes de tipar los datos.
 
@@ -410,6 +412,7 @@ El healthcheck de Logstash (puerto 9600, API de monitoreo del nodo) confirma que
 - **Sin Index Lifecycle Management (ILM).** El volumen de datos de este taller es pequeño; en un escenario con crecimiento continuo se configuraría ILM para rotar/archivar índices antiguos.
 - **El input `jdbc` (si se habilitara) hace *polling*, no *Change Data Capture* real.** CDC real requeriría Debezium + un broker de mensajería.
 - **Recursos:** correr los 10 contenedores simultáneamente requiere 6-8 GB de RAM libres para Docker; en equipos con menos memoria, algunos healthchecks pueden tardar más en converger.
+- **Hallazgo real durante las pruebas de este proyecto (documentado como evidencia de depuración, no solo en teoría):** el setting `path.config` de `logstash.yml`, si se define, activa el modo de *pipeline único* (equivalente a `-f <ruta>`) e ignora `pipelines.yml` por completo; si la ruta es un directorio, además carga **todos** los archivos que encuentre ahí sin filtrar por extensión. Por eso `logstash.yml` **no** define `path.config` (el multi-pipeline vive solo en `pipelines.yml`), y el pipeline de referencia JDBC vive fuera de `logstash/pipeline/` (en `logstash/reference/`) en vez de solo tener una extensión distinta — dos capas de seguridad para que nunca se cargue por accidente.
 
 ---
 

@@ -1,0 +1,140 @@
+ Image taller-etl-python:local Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 631B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.01kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.12kB done
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#6 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#6 DONE 0.0s
+
+#7 [3/8] COPY python/requirements.txt ./requirements.txt
+#7 CACHED
+
+#8 [5/8] COPY python/ ./
+#8 CACHED
+
+#9 [4/8] RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
+#9 CACHED
+
+#10 [6/8] COPY scripts/setup_es_templates.py ./scripts/setup_es_templates.py
+#10 CACHED
+
+#11 [2/8] WORKDIR /app
+#11 CACHED
+
+#12 [7/8] COPY scripts/setup_kibana_index_patterns.py ./scripts/setup_kibana_index_patterns.py
+#12 CACHED
+
+#13 [8/8] COPY elasticsearch/templates/ ./elasticsearch/templates/
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:37cd24861bc7b09536882cc5ebd9ab510953d7627de66e81e7cdd82247d92aee done
+#14 exporting config sha256:9ad7d1b29ea89a5407ac56f858d67d831b1349995f18a92b4a5beff3c02b4546 done
+#14 exporting attestation manifest sha256:56c80df4f9668975bf43058d15b5969580052f61a8485e3a4a09d974837c9173
+#14 exporting attestation manifest sha256:56c80df4f9668975bf43058d15b5969580052f61a8485e3a4a09d974837c9173 0.0s done
+#14 exporting manifest list sha256:7f0f6d73feda7fdc4520f48b117c361e828ed096036d45ace4945acfb335185a 0.0s done
+#14 naming to docker.io/library/taller-etl-python:local done
+#14 unpacking to docker.io/library/taller-etl-python:local 0.0s done
+#14 DONE 0.1s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image taller-etl-python:local Built 
+ Container taller-mysql Running 
+ Container taller-mongodb Running 
+ Container taller-elasticsearch Running 
+ Container taller-postgres Running 
+ Container taller-es-init Recreate 
+ Container taller-es-init Recreated 
+ Container taller-elasticsearch Waiting 
+ Container taller-elasticsearch Healthy 
+ Container taller-es-init Starting 
+ Container taller-es-init Started 
+ Image taller-etl-python:local Building 
+ Image taller-etl-python:local Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.17kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.01kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.12kB 0.0s done
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#6 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#6 DONE 0.0s
+
+#7 [2/8] WORKDIR /app
+#7 CACHED
+
+#8 [3/8] COPY python/requirements.txt ./requirements.txt
+#8 CACHED
+
+#9 [4/8] RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
+#9 CACHED
+
+#10 [5/8] COPY python/ ./
+#10 CACHED
+
+#11 [6/8] COPY scripts/setup_es_templates.py ./scripts/setup_es_templates.py
+#11 CACHED
+
+#12 [7/8] COPY scripts/setup_kibana_index_patterns.py ./scripts/setup_kibana_index_patterns.py
+#12 CACHED
+
+#13 [8/8] COPY elasticsearch/templates/ ./elasticsearch/templates/
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:b26f25d46a997fbee35423508aa7639280e6eff036b741b75583fe616a0cb9f1 done
+#14 exporting config sha256:999dcd453dc8eb6a1e5b295c6936af57730258923c0125d2b335e0107ff01ecc done
+#14 exporting attestation manifest sha256:4ad9c43e74bb0a23b0e35346cd28d8a4006000d916273eeea5b98ca8ebe3b9c4
+#14 exporting attestation manifest sha256:4ad9c43e74bb0a23b0e35346cd28d8a4006000d916273eeea5b98ca8ebe3b9c4 0.0s done
+#14 exporting manifest list sha256:352a7851807cd32257fb830702a6b87730f27a4b30f57f27f3d324001aeba7d3 0.0s done
+#14 naming to docker.io/library/taller-etl-python:local done
+#14 unpacking to docker.io/library/taller-etl-python:local 0.0s done
+#14 DONE 0.2s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image taller-etl-python:local Built 
+ Container taller-postgres Waiting 
+ Container taller-mongodb Waiting 
+ Container taller-es-init Waiting 
+ Container taller-mysql Waiting 
+ Container taller-es-init Exited 
+ Container taller-mysql Healthy 
+ Container taller-postgres Healthy 
+ Container taller-mongodb Healthy 
+ Container taller-02-python-batch-run-dbcd56773809 Creating 
+ Container taller-02-python-batch-run-dbcd56773809 Created 
+43.0.3

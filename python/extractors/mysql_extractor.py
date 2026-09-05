@@ -14,8 +14,9 @@ diagrama del taller muestra MySQL "Ship-eando" directo a Logstash):
   - Con Python ya tenemos control total de la extraccion (reintentos,
     logging, manejo de errores) sin piezas adicionales.
   - Se documenta igualmente el enfoque jdbc como referencia en
-    logstash/pipeline/mysql_jdbc.conf.reference, mostrando que se conoce
-    la alternativa nativa de Logstash y por que se opto por la otra.
+    logstash/reference/mysql_jdbc.conf.reference (fuera de logstash/pipeline/
+    a proposito, para que nunca se cargue por accidente), mostrando que se
+    conoce la alternativa nativa de Logstash y por que se opto por la otra.
 """
 
 from __future__ import annotations
