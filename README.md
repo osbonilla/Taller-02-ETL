@@ -1,4 +1,8 @@
-# Taller-02-ETL
+# Plataforma de Ingesta y Streaming Near-Real Time
+
+## Autores
+- Evelyn Bermeo Granda
+- Oldrin Bonilla Cáceres
 
 Flujo de datos con **ELK (Elasticsearch, Logstash, Kibana)** en esquema **mixto batch + near real-time**, con **7 fuentes de datos de tipos distintos**: CSV, LOG, JSON, MySQL, PostgreSQL, MongoDB y un productor de eventos en tiempo casi real.
 
@@ -319,10 +323,6 @@ En **Kibana → Visualize Library → Create visualization → Lens**:
 6. Top categorías/productos: tabla, índice `taller-ventas-csv*` o `taller-mongo-productos*`, *Top values* sobre `categoria` o `producto.keyword`.
 7. Errores de aplicación: barra, índice `taller-logs-app*`, filtro `log_level: ERROR`, eje X `@timestamp`.
 8. Datos por fuente: pie, índice `taller-*`, split por `source`.
-
-### 12.3. Dashboard
-
-Crear un dashboard (**Dashboard → Create dashboard**) con las visualizaciones anteriores, ubicando "Datos por fuente" y "Eventos por minuto" en la parte superior, por ser los paneles que evidencian directamente la integración de múltiples fuentes y el flujo near real-time activo.
 
 ---
 
